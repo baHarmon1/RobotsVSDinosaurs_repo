@@ -8,14 +8,14 @@ class Battlefield:
         self.herd = Herd()
 
     def run_game(self):
-        print(self.herd.dinosaurs_list[0].name,
-              self.fleet.robots_list[2].weapon.attack_power)
         pass
 
     def display_welcome(self):  # print welcome to Robots VS Dinosaurs
         pass
 
     def battle(self):
+        self.fleet.robots_list[0].attack(self.herd.dinosaurs_list[1])
+        self.herd.dinosaurs_list[1].attack(self.fleet.robots_list[0])
         pass
 
     def dino_turn(self, dinosaur):  # will be computer generated responses
