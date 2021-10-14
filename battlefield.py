@@ -1,6 +1,8 @@
 from fleet import Fleet
 from herd import Herd
 
+game_over = False
+
 
 class Battlefield:
     def __init__(self):
@@ -10,18 +12,23 @@ class Battlefield:
     def run_game(self):
         pass
 
-    def display_welcome(self):  # print welcome to Robots VS Dinosaurs
+    def display_welcome(self):
+        print("Welcome to ROBOTS VS DINOSAURS!!!!")
         pass
 
     def battle(self):
-        self.fleet.robots_list[0].attack(self.herd.dinosaurs_list[1])
-        self.herd.dinosaurs_list[1].attack(self.fleet.robots_list[0])
         pass
 
-    def dino_turn(self, dinosaur):  # will be computer generated responses
+    def dino_turn(self, dinosaur):
+        self.herd.dinosaurs_list[0].attack(self.fleet.robots_list[0])
+        if self.fleet.robots_list[0].health <= 0:
+            self.fleet.robots_list.pop(0)
         pass
 
-    def robo_turn(self, robot):  # print input, list options
+    def robo_turn(self, robot):
+        self.fleet.robots_list[0].attack(self.herd.dinosaurs_list[0])
+        if self.herd.dinosaurs_list[0].health <= 0:
+            self.herd.dinosaurs_list.pop(0)
         pass
 
     def show_dino_opponent_options(self):
